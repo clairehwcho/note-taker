@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const api = require('./routes/index');
+const api = require('./routes/app');
 
 const PORT = 3001;
 
@@ -12,12 +12,15 @@ app.use('/api', api);
 
 app.use(express.static('public'));
 
+// GET Route for notes page
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
+});
+
+// GET Route for homepage
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 
-app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirnmae, '/public/notes.html'))
-});
 
 app.listen(PORT, () => console.log(`App listening at ${PORT}`));
