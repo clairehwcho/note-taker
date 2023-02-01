@@ -1,12 +1,12 @@
 [
     {
         "title": "Study express",
-        "text": "learn more about express",
+        "text": "Learn more about express",
         "id": "aeebcfdb-2da6-4fd3-b3df-c0753a824c4b"
     },
     {
         "title": "Build python app",
-        "text": "python",
+        "text": "Make a web app using python",
         "id": "fd1802fb-af80-409f-a013-6fc7ca159e73"
     }
 ]
