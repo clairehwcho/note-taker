@@ -6,7 +6,7 @@
 
 This is a simple application that can be used to write and save notes using an Express.js backend. User can add a new note with a title and text, see existing notes, and delete a note.
 
-You can check out the deployed application from the link below:
+You can check out the deployed application from the link below: <br/>
 [https://bootcamp-note-taker.herokuapp.com/](https://bootcamp-note-taker.herokuapp.com/)
 
 <!-- omit in toc -->
