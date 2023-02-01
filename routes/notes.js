@@ -1,5 +1,5 @@
 const notesRouter = require('express').Router();
-const { readFromFile, writeToFile, readAndAppend } = require('../helpers/fsUtils');
+const { readFromFile, readAndAppend, readAndDelete } = require('../helpers/fsUtils');
 const { v4: uuidv4 } = require('uuid');
 
 // GET Route for retrieving all the notes
@@ -15,7 +15,7 @@ notesRouter.post('/', (req, res) => {
         const newNote = {
             title,
             text,
-            note_id: uuidv4()
+            id: uuidv4()
         };
 
         readAndAppend(newNote, './db/db.json');
@@ -29,6 +29,25 @@ notesRouter.post('/', (req, res) => {
     }
     else {
         res.json('Error in posting note')
+    }
+});
+
+// DELETE Route for deleting an existing note
+notesRouter.delete('/:id', (req, res) => {
+    const { id } = req.params;
+
+    if (id) {
+        readAndDelete('./db/db.json', id);
+
+        const response = {
+            status: 'success',
+            body: req.params
+        };
+
+        res.json(response);
+    }
+    else {
+        res.json('Error in deleting note')
     }
 });
 
